@@ -12,6 +12,8 @@ keymap.set("n", "Q", ":quit<CR>", { desc = '[Q]uit buffer' })
 
 keymap.set("n", "<leader>gb", ":Git blame<CR>", { desc = '[g]it [b]lame' })
 
+keymap.set("n", "<leader>ga", ":GoAlternate<CR>", { desc = '[g]o [a]lternate' })
+
 local ts = require('telescope.builtin')
 keymap.set('n', '<leader>fb', ts.buffers, { desc = '[f]ind [b]uffers'})
 keymap.set('n', '<leader>fc', ts.colorscheme, { desc = '[f]ind [c]olorscheme'})
@@ -22,10 +24,11 @@ keymap.set('n', '<leader>fk', ts.keymaps, { desc = '[f]ind [k]eymap'})
 keymap.set('n', '<leader>ft', ts.tags, { desc = '[f]ind [t]ags'})
 keymap.set('n', '<leader>fw', ts.grep_string, { desc = '[f]ind [w]ord under cursor'})
 
+keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = '[e]xplorer' })
 keymap.set('n', '<leader>R', ":TestNearest<CR>", { desc = 'test nearest'})
 keymap.set('n', '<leader>r', ":TestFile<CR>", { desc = 'test file'})
 
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = '[e]xplorer' })
+keymap.set('n', '<leader>f', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),

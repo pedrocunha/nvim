@@ -1,10 +1,16 @@
-require("mason").setup()
-require("mason-lspconfig").setup{
-  ensure_installed = { "gopls" }
+require('mason').setup()
+require('mason-lspconfig').setup{
+  ensure_installed = { 'gopls', 'tsserver' }
 }
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local lspconfig = require 'lspconfig'
+local configs = require 'lspconfig.configs'
 
-require("lspconfig").gopls.setup {
+lspconfig.gopls.setup {
   capabilities = capabilities
 }
+
+lspconfig.tsserver.setup{}
+
+vim.cmd [[autocmd BufWritePre *.js lua vim.lsp.buf.format()]]

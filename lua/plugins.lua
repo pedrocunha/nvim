@@ -41,17 +41,25 @@ return require('packer').startup(function(use)
   use({'nvim-telescope/telescope-fzf-native.nvim', run='make'}) 
   use({'nvim-telescope/telescope.nvim', branch='0.1.x'}) 
 
-  use 'navarasu/onedark.nvim'
+  use 'ellisonleao/gruvbox.nvim' 
   use 'vim-scripts/kwbdi.vim'
   use 'vim-test/vim-test'
+  use 'fatih/vim-go'
+  use 'hashivim/vim-terraform'
 
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
-  use 'neovim/nvim-lspconfig'
 
-  use 'hrsh7th/nvim-cmp'
+  use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/nvim-cmp'
+
+  use 'zbirenbaum/copilot.lua'
+  use 'zbirenbaum/copilot-cmp'
+
   use 'onsails/lspkind.nvim'
+  use 'rafamadriz/friendly-snippets'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
 
@@ -61,12 +69,3 @@ return require('packer').startup(function(use)
     require('packer').sync()
   end
 end)
-
---Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
---
---Plug 'neovim/nvim-lspconfig'
---Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
---Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
---
---Plug 'vim-scripts/closetag.vim'
---Plug 'w0rp/ale'
