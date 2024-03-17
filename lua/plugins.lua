@@ -44,12 +44,12 @@ return require('packer').startup(function(use)
   use 'ellisonleao/gruvbox.nvim' 
   use 'vim-scripts/kwbdi.vim'
   use 'vim-test/vim-test'
-  use 'fatih/vim-go'
   use 'hashivim/vim-terraform'
 
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
-
+  use 'ray-x/go.nvim'
+  use 'ray-x/guihua.lua' -- recommended if need floating window support
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
@@ -62,6 +62,7 @@ return require('packer').startup(function(use)
   use 'rafamadriz/friendly-snippets'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
