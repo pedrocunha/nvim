@@ -39,7 +39,7 @@ return require('packer').startup(function(use)
   use 'nvim-tree/nvim-web-devicons'
 
   use({'nvim-telescope/telescope-fzf-native.nvim', run='make'}) 
-  use({'nvim-telescope/telescope.nvim', branch='0.1.x'}) 
+  use({'nvim-telescope/telescope.nvim', tag='*'}) 
 
   use 'vim-scripts/kwbdi.vim'
   use 'vim-test/vim-test'
