@@ -39,8 +39,3 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.iskeyword:append("-") -- consider string-string as whole word
 
 opt.shell = "/bin/zsh"
-
-local g = vim.g
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
-

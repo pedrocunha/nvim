@@ -12,7 +12,8 @@ keymap.set("n", "Q", ":quit<CR>", { desc = '[Q]uit buffer' })
 
 keymap.set("n", "<leader>gb", ":Git blame<CR>", { desc = '[g]it [b]lame' })
 
-keymap.set("n", "<leader>ga", ":GoAlternate<CR>", { desc = '[g]o [a]lternate' })
+keymap.set("n", "<leader>ga", ":GoAlt<CR>", { desc = '[g]o [a]lternate' })
+keymap.set("n", "<leader>gv", ":GoAltV<CR>", { desc = '[g]o [a]lternate [v]ertical' })
 
 local ts = require('telescope.builtin')
 keymap.set('n', '<leader>fb', ts.buffers, { desc = '[f]ind [b]uffers'})
@@ -23,12 +24,28 @@ keymap.set('n', '<leader>fh', ts.help_tags, { desc = '[f]ind [h]elp tags'})
 keymap.set('n', '<leader>fk', ts.keymaps, { desc = '[f]ind [k]eymap'})
 keymap.set('n', '<leader>ft', ts.tags, { desc = '[f]ind [t]ags'})
 keymap.set('n', '<leader>fw', ts.grep_string, { desc = '[f]ind [w]ord under cursor'})
+keymap.set('n', '<leader>fm', function() ts.lsp_document_symbols({ symbols = 'function' }) end, { desc = '[f]ind [m]ethods'})
 
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = '[e]xplorer' })
+keymap.set("n", "<leader>fe", ":NvimTreeFindFile<CR>", { desc = '[f]ind current buffer in the [e]xplorer' })
+
 keymap.set('n', '<leader>R', ":TestNearest<CR>", { desc = 'test nearest'})
 keymap.set('n', '<leader>r', ":TestFile<CR>", { desc = 'test file'})
 
 keymap.set('n', '<leader>f', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+
+
+-- keymaps for luasnip
+local ls = require("luasnip")
+vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
+vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
+vim.keymap.set({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true})
+
+vim.keymap.set({"i", "s"}, "<C-E>", function()
+	if ls.choice_active() then
+		ls.change_choice(1)
+	end
+end, {silent = true})
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),

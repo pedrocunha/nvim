@@ -41,13 +41,14 @@ return require('packer').startup(function(use)
   use({'nvim-telescope/telescope-fzf-native.nvim', run='make'}) 
   use({'nvim-telescope/telescope.nvim', branch='0.1.x'}) 
 
-  use 'ellisonleao/gruvbox.nvim' 
   use 'vim-scripts/kwbdi.vim'
   use 'vim-test/vim-test'
   use 'hashivim/vim-terraform'
 
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
+  use 'rebelot/kanagawa.nvim'
+
+  use 'mason-org/mason.nvim'
+  use 'mason-org/mason-lspconfig.nvim'
   use 'ray-x/go.nvim'
   use 'ray-x/guihua.lua' -- recommended if need floating window support
   use 'neovim/nvim-lspconfig'
@@ -63,10 +64,10 @@ return require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
 
+  use 'udalov/kotlin-vim'
+
   use 'nvim-treesitter/nvim-treesitter'
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
   end
