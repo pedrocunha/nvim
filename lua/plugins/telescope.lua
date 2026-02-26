@@ -2,6 +2,7 @@ local telescope = require("telescope")
 local telescopeConfig = require("telescope.config")
 
 telescope.load_extension('fzf')
+telescope.load_extension("git_worktree")
 
 -- Clone the default Telescope configuration
 local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }

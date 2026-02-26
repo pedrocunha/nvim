@@ -26,7 +26,13 @@ keymap.set('n', '<leader>ft', ts.tags, { desc = '[f]ind [t]ags'})
 keymap.set('n', '<leader>fw', ts.grep_string, { desc = '[f]ind [w]ord under cursor'})
 keymap.set('n', '<leader>fm', function() ts.lsp_document_symbols({ symbols = 'function' }) end, { desc = '[f]ind [m]ethods'})
 
+local ts = require('telescope')
+keymap.set("n", "<leader>b", ts.extensions.git_worktree.git_worktrees, { desc = 'list [w]ork[t]rees' })
+keymap.set("n", "<leader>B", ts.extensions.git_worktree.create_git_worktree, { desc = 'create [w]ork[t]rees' })
+
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = '[e]xplorer' })
+keymap.set("n", "<leader>fe", ":NvimTreeFindFile<CR>", { desc = '[f]ind current buffer in the [e]xplorer' })
+
 keymap.set("n", "<leader>fe", ":NvimTreeFindFile<CR>", { desc = '[f]ind current buffer in the [e]xplorer' })
 
 keymap.set('n', '<leader>R', ":TestNearest<CR>", { desc = 'test nearest'})
